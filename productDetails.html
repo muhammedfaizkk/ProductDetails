@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="./style/Productdetails.css">
+</head>
+
+<body>
+    <section>
+        <div class="container flex">
+            <div class="left">
+                <div class="main_image">
+                    <img src="./assets/doors/PTR 100_1.webp" class="slide">
+                </div>
+                <div class="option flex">
+                    <img src="./assets/doors/PTR 100_1.webp" onclick="img('./assets/doors/PTR 100_1.webp', 0)">
+                    <img src="./assets/doors/PTR 101_1.webp" onclick="img('./assets/doors/PTR 101_1.webp', 1)">
+                    <img src="./assets/doors/PTR 11-1.webp" onclick="img('./assets/doors/PTR 11-1.webp', 2)">
+                    <img src="./assets/doors/PTR 115-1.webp" onclick="img('./assets/doors/PTR 115-1.webp', 3)">
+                    <img src="./assets/doors/PTR 110_1.webp" onclick="img('./assets/doors/PTR 110_1.webp', 4)">
+                    <img src="./assets/doors/PTR 21.webp" onclick="img('./assets/doors/PTR 21.webp', 5)">
+                </div>
+            </div>
+            <div class="right">
+                <h3>PTR 100</h3>
+                <div class="d-flex">
+                    <div class="prd-card col-md-6">
+                        <h3>Available Sizes</h3>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                    </div>
+                    <div class="prd-card col-md-6">
+                        <h3>Available Sizes</h3>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                        <p>2050*880*50MM 5"S/L</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function img(anything, index) {
+            document.querySelector('.slide').src = anything;
+            currentIndex = index;
+        }
+
+        function change(change) {
+            const line = document.querySelector('.home');
+            line.style.background = change;
+        }
+
+        let currentIndex = 0;
+        function autoSlider() {
+            const images = [
+                './assets/doors/PTR 100_1.webp',
+                './assets/doors/PTR 101_1.webp',
+                './assets/doors/PTR 11-1.webp',
+                './assets/doors/PTR 115-1.webp',
+                './assets/doors/PTR 110_1.webp',
+                './assets/doors/PTR 21.webp'
+            ];
+
+            document.querySelector('.slide').src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+            setInterval(function () {
+                document.querySelector('.slide').src = images[currentIndex];
+
+                currentIndex = (currentIndex + 1) % images.length;
+            }, 5000);
+        }
+        autoSlider();
+    </script>
+</body>
+
+</html>
